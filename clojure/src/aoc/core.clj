@@ -1,6 +1,11 @@
-(ns aoc.core)
+(ns aoc.core
+  (:require [clojure.java.io :as io]
+            [clojure.string :as s]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn get-input
+  ([f]
+   (get-input f #"\n"))
+  ([f delim]
+   (-> (io/resource f)
+       slurp
+       (s/split delim))))

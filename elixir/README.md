@@ -1,21 +1,13 @@
-# Aoc
+# Aoc 2021
 
-**TODO: Add description**
+### Info
 
-## Installation
+- Each day has it's own file in `lib/`
+- Each day's input file is in `priv/`
+- Common utilities are located in `lib/aoc.ex`
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `aoc` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:aoc, "~> 0.1.0"}
-  ]
-end
+To test it in a repl:
+```bash
+$ iex -S mix
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/aoc](https://hexdocs.pm/aoc).
-
+and run each day's parts i.e `Day1.part1`

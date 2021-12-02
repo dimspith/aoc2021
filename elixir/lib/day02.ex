@@ -4,7 +4,7 @@ defmodule Day02 do
     |> String.split("\n", trim: true)
   end
 
-  def compute_p1([op, val], {depth, distance}) do
+  def compute([op, val], {depth, distance}) do
     val = String.to_integer(val)
 
     case op do
@@ -14,7 +14,7 @@ defmodule Day02 do
     end
   end
 
-  def compute_p2([op, val], {depth, distance, aim}) do
+  def compute([op, val], {depth, distance, aim}) do
     val = String.to_integer(val)
 
     case op do
@@ -27,14 +27,14 @@ defmodule Day02 do
   def part1 do
     get_input("priv/day02")
     |> Enum.map(&String.split(&1, " ", trim: true))
-    |> Enum.reduce({0, 0}, &compute_p1/2)
+    |> Enum.reduce({0, 0}, &compute/2)
     |> Tuple.product()
   end
 
   def part2 do
     get_input("priv/day02")
     |> Enum.map(&String.split(&1, " ", trim: true))
-    |> Enum.reduce({0, 0, 0}, &compute_p2/2)
+    |> Enum.reduce({0, 0, 0}, &compute/2)
     |> (fn {depth, distance, _} -> depth * distance end).()
   end
 end

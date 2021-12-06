@@ -17,16 +17,16 @@ defmodule Day06 do
     |> insert_missing_keys
     |> (fn x ->
           Enum.reduce(1..days, x, fn _x, acc ->
-            days = Map.keys(acc)
-            fish = Map.values(acc)
-            new_fish = hd(fish)
-
-            fish
-            |> tl
-            |> Kernel.++([new_fish])
-            |> List.update_at(6, &(&1 + new_fish))
-            |> (fn x -> Enum.zip(days, x) end).()
-            |> Map.new()
+            with days <- Map.keys(acc),
+                 fish <- Map.values(acc),
+                 new_fish <- hd(fish) do
+              fish
+              |> tl
+              |> Kernel.++([new_fish])
+              |> List.update_at(6, &(&1 + new_fish))
+              |> (fn x -> Enum.zip(days, x) end).()
+              |> Map.new()
+            end
           end)
         end).()
   end
